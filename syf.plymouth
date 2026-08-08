@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=syf-3o85xuUgH5oHsk4Lss
+Description=Steal Your Face from https://giphy.com/gifs/3o85xuUgH5oHsk4Lss
+Comment=created By Steve Konklin
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/syf-3o85xuUgH5oHsk4Lss
+ScriptFile=/usr/share/plymouth/themes/syf-3o85xuUgH5oHsk4Lss/syf-3o85xuUgH5oHsk4Lss.script

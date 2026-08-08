@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+## Place this directory in /usr/share/plymouth/themes
+##
+## The plymouth-x11 package is required; to install on an apt-based system:
+## `sudo apt install plymouth-x11`
+## If it is not found in the checks below, you can also try looking via:
+## `dpkg -l | grep plymouth-x11`
+## `apt list --installed plymouth-x11`
+
+! (( $( id -u ) == 0 )) && { printf 'Must be run as root, e.g., `sudo %s`, exiting.\n(exit 1)\n' "$0"
+                             exit 1; }
+
+trap '{ plymouth quit; sleep 0.5; pkill -9 plymouthd; } 2>/dev/null; exit 1' INT TERM
+
+dur="$1"
+(( "$#" != 1 )) && ! (( dur )) && dur=10
+
+## uncomment to disable plymouth and plymouth-x11 checks:
+# disablechecks=1
+if (( ! disablechecks )); then
+  printf -v seecomm 'See comments in %s to disable check or for more details about installing.\n' "$0"
+	! command -v plymouth >/dev/null && { printf 'plymouth not found, exiting\n%s\n(exit 1)\n' "$seecomm"; exit 1; }
+
+	plymplugin="$(plymouth --get-splash-plugin-path)" ||
+	  { printf 'plymouth --get-splash-plugin-path failed, exiting\n(exit 1)\n'; exit 1; }
+  plymplugin="${plymplugin%/}"
+	plymrender="$plymplugin/renderers"
+
+	if [[ -d "$plymrender" ]]; then
+	  shopt -s nullglob
+	  renderfiles=( "$plymrender"/* )
+	  if [[ \ "${renderfiles[*]}"\  = */x11.so\ * ]]; then
+	    printf 'plymouth-x11 is installed.\n'
+      printf 'Starting %s s test...\n' "$dur"
+	  else
+	    printf 'plymouth-x11 does not appear to be installed, exiting.\n%s\n(exit 1)\n' "$seecomm"
+      exit 1
+	  fi
+	else
+    printf 'Unable to find %s to verify plymouth-x11 is installed, exiting.\n%s\n(exit 1)\n' \
+      "$plymrender" "$seecomm"
+    exit 1
+	fi
+fi
+
+plymouthd
+plymouth --show-splash
+for ((i=0; i<dur; i++)); do
+  plymouth --update="test$i"
+  sleep 1
+done
+plymouth quit
+
+printf 'Done!\n\n'
+exit 0
