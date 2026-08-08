@@ -3,5 +3,9 @@
 - The images are by Steve Konklin, see https://giphy.com/gifs/3o85xuUgH5oHsk4Lss or https://giphy.com/skonklin for more animations.
 - The plymouth script was adapted from Aditya Shakya (https://github.com/adi1090).
 
+<p align="center">
+  <img src="giphy.gif" alt="SYF Plymouth splash screen">
+</p>
+
 ![SYF Plymouth splash screen](giphy.gif)
 
