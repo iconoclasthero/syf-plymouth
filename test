@@ -44,6 +44,9 @@ if (( ! disablechecks )); then
 	fi
 fi
 
+printf '\nNB: the syf.plymouth file expects the following paths when installed, edit as appropriate:\n\n%s\n\n' \
+  "$(cat syf.plymouth)"
+
 plymouthd
 plymouth --show-splash
 for ((i=0; i<dur; i++)); do

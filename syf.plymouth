@@ -1,9 +1,9 @@
 [Plymouth Theme]
-Name=syf-3o85xuUgH5oHsk4Lss
-Description=Steal Your Face from https://giphy.com/gifs/3o85xuUgH5oHsk4Lss
-Comment=created By Steve Konklin
+Name=syf-plymouth
+Description=Animated Steal Your Face by Steve Konklin (https://giphy.com/gifs/3o85xuUgH5oHsk4Lss)
+Commen=See https://giphy.com/skonklin for additional Dead animation frames
 ModuleName=script
 
 [script]
-ImageDir=/usr/share/plymouth/themes/syf-3o85xuUgH5oHsk4Lss
-ScriptFile=/usr/share/plymouth/themes/syf-3o85xuUgH5oHsk4Lss/syf-3o85xuUgH5oHsk4Lss.script
+ImageDir=/usr/share/plymouth/themes/syf-plymouth
+ScriptFile=/usr/share/plymouth/themes/syf-plymouth/syf.script
