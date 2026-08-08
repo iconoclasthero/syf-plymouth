@@ -31,7 +31,7 @@ state.time = 0.0;
 # cycle through all images
 NUM_FRAMES = 6;
 # Speed control, reciprocal value: 1 = fast, 2 = half speed, 3 = third speed, etc.
-RATE_FACTOR = 2; 
+RATE_FACTOR = 4; 
 
 for (i = 0; i < NUM_FRAMES; i++)
   flyingman_image[i] = Image("progress-" + i + ".png");

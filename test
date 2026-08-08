@@ -44,6 +44,7 @@ if (( ! disablechecks )); then
 	fi
 fi
 
+printf '\nNB: This script tests the currently-active Plymouth boot screen only!\n'
 printf '\nNB: the syf.plymouth file expects the following paths when installed, edit as appropriate:\n\n%s\n\n' \
   "$(cat syf.plymouth)"
 
